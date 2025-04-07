@@ -4,20 +4,20 @@ import styles from "./style.module.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export default function CardComponent() {
+export default function CardComponent ( image, name, universe, media, onDetails ) {
     return (
-        <>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-        </>
+        <Card className={styles.card}>
+            <Card.Img variant="top" src={image} className={styles.cardImage} />
+            <Card.Body>
+                <Card.Title className={styles.cardTitle}>{name}</Card.Title>
+                <Card.Text className={styles.cardText}>
+                    <strong>Universo:</strong> {universe} <br />
+                    <strong>Mídia:</strong> {media}
+                </Card.Text>
+                <Button className={styles.cardButton} onClick={onDetails}>
+                    VER DETALHES
+                </Button>
+            </Card.Body>
+        </Card>
     )
 }
