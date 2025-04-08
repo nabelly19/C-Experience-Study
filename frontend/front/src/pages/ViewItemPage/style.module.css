@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.section1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 25px 0 25px 0;
+}
+
+.title{
+    font-weight: bolder;
+    color: #006FBF;
+}
+
+.subtitle{
+    font-weight: lighter !important;
+    color: #545454 !important;
+}
+
+.container{
+    margin: 25px 0 25px 0;
+}
+
+.btn{
+    margin-right: 45px;
+}

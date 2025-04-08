@@ -4,7 +4,7 @@ import styles from "./style.module.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export default function CardComponent ( image, name, universe, media, onDetails ) {
+export default function CardComponent ({ image, name, universe, media, onDetails }) {
     return (
         <Card className={styles.card}>
             <Card.Img variant="top" src={image} className={styles.cardImage} />

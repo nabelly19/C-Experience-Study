@@ -16,9 +16,19 @@ export default function ListPage() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        api.get("/personagens")
+        api.get("http://localhost:3000/personagens")
             .then(response => {
-                setItems(response.data);
+                // Mapeia os dados para os nomes que o componente espera
+                const mappedItems = response.data.map(item => ({
+                    id: item.id,
+                    image: item.imagem_url,
+                    name: item.nome,
+                    // Se você tiver um mapeamento ou consulta para "universe"
+                    // substitua item.universo_id ou defina um valor padrão.
+                    universe: item.universo_id,
+                    media: "Mídia não definida",
+                }));
+                setItems(mappedItems);
             })
             .catch(error => {
                 console.error("Erro ao buscar personagens:", error);
@@ -39,7 +49,7 @@ export default function ListPage() {
                         <Col>
                             <div className={styles.container}>
                                 <h1 className={styles.title}>Lista Geral</h1>
-                                <h5 className={styles.subtile}>Consulte todos os personagens existentes</h5>
+                                <h5 className={styles.subtitle}>Consulte todos os personagens existentes</h5>
                             </div>
 
                             <div className={styles.search_bar}>

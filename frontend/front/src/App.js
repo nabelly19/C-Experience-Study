@@ -16,7 +16,7 @@ function App() {
       <NavbarComponent />
       <Routes>
         <Route path="/" element={<ListPage />} />
-        <Route path='/detalhes' element={<ViewItemPage/>} />
+        <Route path='/detalhes/:id' element={<ViewItemPage/>} />
       </Routes>
     </>
   );

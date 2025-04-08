@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 
 import styles from "./style.module.css";
 
-export default function DetailCardComponent(image, name, universe, media, description) {
+export default function DetailCardComponent({image, name, universe, media, description}) {
 
     return (
         <>
