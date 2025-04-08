@@ -9,12 +9,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import api from "../../services/api";
+
 export default function ListPage() {
 
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get("") // URL API
+        api.get("/personagens")
             .then(response => {
                 setItems(response.data);
             })

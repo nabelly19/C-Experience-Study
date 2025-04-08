@@ -10,12 +10,14 @@ import styles from "./style.module.css";
 import ButtonComponent from "../../components/ButtonComponent";
 import DetailCardComponent from "../../components/DetailCardComponent";
 
+import api from "../../services/api";
+
 export default function ViewItemPage() {
     const { id } = useParams();
     const [item, setItem] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/personagens/${id}`) // URL conforme seu backend
+        api.get(`/personagens/${id}`)
             .then(response => setItem(response.data))
             .catch(error => console.error("Erro ao buscar item:", error));
     }, [id]);
