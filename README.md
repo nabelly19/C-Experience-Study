@@ -41,6 +41,8 @@ Using MySQL terminal or a GUI tool like DBeaver or MySQL Workbench
 
 #### 3.Update the database connection credentials in the backend:
 File: backend/db.js
+
+
 const pool = mysql.createPool({
   host: "localhost",
   user: "your_user",
@@ -50,5 +52,5 @@ const pool = mysql.createPool({
 
 ### 3. Install Dependencies
 
-## 4. Run the Application
+### 4. Run the Application
 
