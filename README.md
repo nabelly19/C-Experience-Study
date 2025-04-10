@@ -29,8 +29,7 @@ Before starting, make sure you have the following installed on your machine:
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/your-username/your-repo-name.git
-cd your-repo-name](https://github.com/nabelly19/C-Experience-Study.git)
+git clone https://github.com/nabelly19/C-Experience-Study.git
 ```
 
 ### 2. Set up the Database
