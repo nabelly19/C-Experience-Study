@@ -27,3 +27,9 @@
 .btn{
     margin-right: 45px;
 }
+
+.btnArea{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+}

@@ -3,6 +3,10 @@
     margin: 0
 }
 
+.logo{
+    width: 40px;
+}
+
 .custom_navbar{
     background-color: #663FAC;
 }
@@ -16,6 +20,7 @@
 
 .custom_navbar .nav_link{
     font-size: 25px;
+    margin-right: 25px;
 }
 
 .custom_navbar .nav_link:hover{

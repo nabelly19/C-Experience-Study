@@ -1,13 +1,22 @@
 const pool = require("../config/db");
 
 async function getAllPersonagens() {
-  const sql = "SELECT * FROM personagens";
+  const sql = `
+    SELECT p.*, u.nome AS universo_nome 
+    FROM personagens p
+    LEFT JOIN universos u ON p.universo_id = u.id
+  `;
   const [rows] = await pool.query(sql);
   return rows;
 }
 
 async function getPersonagemById(id) {
-  const sql = "SELECT * FROM personagens WHERE id = ?";
+  const sql = `
+    SELECT p.*, u.nome AS universo_nome 
+    FROM personagens p
+    LEFT JOIN universos u ON p.universo_id = u.id
+    WHERE p.id = ?
+  `;
   const [rows] = await pool.query(sql, [id]);
   return rows[0];
 }
@@ -15,11 +24,20 @@ async function getPersonagemById(id) {
 async function createPersonagem(personagem) {
   // Campos: nome, descricao, universo_id, ano_criacao, criador, imagem_url
   const { nome, descricao, universo_id, ano_criacao, criador, imagem_url } = personagem;
+
   const sql = `
     INSERT INTO personagens (nome, descricao, universo_id, ano_criacao, criador, imagem_url)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
-  const [result] = await pool.query(sql, [nome, descricao, universo_id, ano_criacao, criador, imagem_url]);
+
+  const [result] = await pool.query(sql, 
+    [nome, 
+    descricao,
+    universo_id,
+    ano_criacao,
+    criador,
+    imagem_url
+  ]);
   return result.insertId;
 }
 

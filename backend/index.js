@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const personagemRoutes = require("./src/routes/routes.js");
+const universoRoutes = require("./src/routes/universoRoutes.js")
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/personagens", personagemRoutes);
+app.use("/universos", universoRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ message: "Endpoint não encontrado." });

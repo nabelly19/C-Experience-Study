@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 export default function ButtonComponent({
     onClick,
     text,
-    variant = "primario", // primario | secundario | custom
+    variant = "primario", // primario | secundario | sucesso | perigo | custom
     className = "",
   }) {
     return (

@@ -14,6 +14,8 @@ import api from "../../services/api";
 export default function ListPage() {
 
     const [items, setItems] = useState([]);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         api.get("http://localhost:3000/personagens")
@@ -23,15 +25,18 @@ export default function ListPage() {
                     id: item.id,
                     image: item.imagem_url,
                     name: item.nome,
-                    // Se você tiver um mapeamento ou consulta para "universe"
-                    // substitua item.universo_id ou defina um valor padrão.
-                    universe: item.universo_id,
+                    universe: item.universo_nome || "Desconhecido",
                     media: "Mídia não definida",
                 }));
                 setItems(mappedItems);
+                setError("");
             })
-            .catch(error => {
-                console.error("Erro ao buscar personagens:", error);
+            .catch(err => {
+                console.error("Erro:", err);
+                setError("Falha ao carregar os dados.");
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, []);
 
@@ -40,6 +45,9 @@ export default function ListPage() {
     const handleDetails = (id) => {
         navigate(`/detalhes/${id}`);
     };
+
+    if (loading) return <p>Carregando...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <>
